@@ -6,7 +6,11 @@
 
     <groupId>com.fashion.spark</groupId>
     <artifactId>basic-spark</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>spark-wordcount</module>
+    </modules>
 
 
     <properties>
@@ -17,12 +21,23 @@
             <groupId>org.scala-lang</groupId>
             <artifactId>scala-library</artifactId>
             <version>${scala.version}</version>
-    </dependency>
-    <dependency>
+        </dependency>
+        <dependency>
             <groupId>org.apache.spark</groupId>
-        <artifactId>spark-core_2.11</artifactId>
-        <version>${spark.version}</version>
-    </dependency>
+            <artifactId>spark-core_2.11</artifactId>
+            <version>${spark.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-sql_2.11</artifactId>
+            <version>${spark.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-hive_2.11</artifactId>
+            <version>${spark.version}</version>
+        </dependency>
     </dependencies>
 
 

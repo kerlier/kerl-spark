@@ -1,0 +1,53 @@
+1. 下载spark.tar.gz包
+
+2. 修改spark-env.sh
+    cp spark-env.sh.template spark-env.sh
+
+    export JAVA_HOME= /home/hadoop/jdk1.7.0_80
+    #指定 spark 老大 Master 的 IP 
+    export SPARK_MASTER_HOST=hdp-node-01 
+    #指定 spark 老大 Master 的端口 
+    export SPARK_MASTER_PORT=7077
+  
+
+   修改slaves
+   cp slaves.template slaves
+   vi slaves
+      添加如下内容：
+
+
+3. 将spark文件夹拷贝到其他节点上
+    scp -r spark node2:~
+
+4. 在主节点上启动spark
+   spark/sbin/start-all.sh
+
+5. 查看spark页面 
+   http://192.168.5.128:8080/
+
+
+6. 运行example程序
+
+    bin/spark-submit --class org.apache.spark.examples.SparkPi --master spark://node1:7077 --executor-memory 1G --total-executor-cores 2 examples/jars/spark-examples_2.11-2.0.2.jar 10
+
+
+7. spark-shell读取hdfs上的数据
+   vi spark-env.sh
+   #添加hadoop的配置信息
+   export HADOOP_CONF_DIR=/opt/bigdata/hadoop-2.6.4/etc/hadoop
+
+   重启spark
+
+
+
+8. 使用spark-shell
+
+   spark-shell --master local[2]   表示使用两个线程执行任务
+
+   workCount例子：
+
+     #读取本地文件
+     sc.textFile("file:///home/hadoop/spark_data/word.txt").flatMap(_.split(" ")).map((_,1)).reduceByKey(_+_).collect
+
+     #读取hdfs文件
+     sc.textFile("/spark/word.txt").flatMap(_.split(" ")).map((_,1)).reduceByKey(_+_).collect

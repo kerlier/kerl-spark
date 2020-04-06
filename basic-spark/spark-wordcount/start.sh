@@ -1,0 +1,1 @@
+/home/hadoop/sparkbin/spark-submit --class com.fashion.spark.app.WorkCountApplication --master spark://node1:7077 --executor-memory 1G --total-executor-cores 2 ./spark-wordcount-1.0-SNAPSHOT.jar /spark/word.txt /spark_out
