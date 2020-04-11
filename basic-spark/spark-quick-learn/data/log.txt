@@ -1,0 +1,14 @@
+error:aaaaa
+error:aaaaa
+error:aaaaa
+error:aaaaa
+error:aaaaa
+warn:aaaaa
+warn:aaaaa
+warn:aaaaa
+warn:aaaaa
+warn:aaaaa
+warn:aaaaa
+info:bbb
+info:bbb
+info:nn

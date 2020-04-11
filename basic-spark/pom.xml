@@ -10,6 +10,8 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>spark-wordcount</module>
+        <module>spark-it-learn</module>
+        <module>spark-quick-learn</module>
     </modules>
 
 
