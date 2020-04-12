@@ -154,7 +154,6 @@ object RddExercise {
 
   //使用flatMap，传入一个参数，返回多个参数
   def useFlatMap(sc:SparkContext):String={
-
     val input = sc.parallelize(List("i love lvshuzhen","hello world"))
     val words = input.flatMap(_.split(" "))
     words.first()
